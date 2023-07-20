@@ -1,7 +1,5 @@
 import com.xebia.functional.xef.auto.ai
-import com.xebia.functional.xef.auto.llm.openai.getOrThrow
-import com.xebia.functional.xef.auto.llm.openai.prompt
-import com.xebia.functional.xef.auto.llm.openai.promptMessage
+import com.xebia.functional.xef.auto.llm.openai.*
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.Serializable
 
@@ -39,6 +37,12 @@ data class ListaTenistas(val tenista: List<Tenista>)
 @Serializable
 data class Tenista(val nombre: String, val descripcion: String)
 
+@Serializable
+data class Population(val size: Int, val description: String)
+
+@Serializable
+data class Image(val description: String, val url: String)
+
 
 // podemos crear funciones que nos ayuden a trabajar con la librería
 suspend fun libros(topic: String): String = ai {
@@ -61,6 +65,7 @@ suspend fun informacionInstituto(instituto: String) = ai {
 fun main() = runBlocking {
     println("Jugando con Xef AI y OpenAI")
     println()
+
 
     // Ejemplo de uso de la librería
     println("Colección de libros sobre Kotlin")
@@ -141,5 +146,23 @@ fun main() = runBlocking {
             println()
         }
     }.getOrThrow()
+
+
+    println()
+    println("Population and description Cities")
+    ai {
+        val cazorla: Population = prompt("Population and description of Cazorla, Spain.")
+        val cherkasy: Population = prompt("Population and description of Cherkasy, Ukraine.")
+
+        println("Population of Cazorla: ${cazorla.size}")
+        println("Description of Cazorla: ${cazorla.description}")
+
+        println("Population of Cherkasy: ${cherkasy.size}")
+        println("Description of Cherkasy: ${cherkasy.description}")
+
+
+        val img: Image = image("A hybrid city of Cazorla, Spain and Cherkasy, Ukraine.")
+        println("Image ${img.description} available at ${img.url}")
+    }.getOrElse { println(it) }
 
 }
