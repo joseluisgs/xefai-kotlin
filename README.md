@@ -1,10 +1,10 @@
-# Xefia-Kotlin
+# Xefai-Kotlin
 
 Jugando con IA en Kotlin usando Xef.ai
 
 [![Kotlin](https://img.shields.io/badge/Code-Kotlin-blueviolet)](https://kotlinlang.org/)
 [![Compose](https://img.shields.io/badge/Code-Compose-blue)](https://www.jetbrains.com/es-es/lp/compose-mpp/)
-![GitHub](https://img.shields.io/github/last-commit/joseluisgs/xefia-kotlin)
+![GitHub](https://img.shields.io/github/last-commit/joseluisgs/xefai-kotlin)
 [![LICENSE](https://img.shields.io/badge/Lisence-CC-%23e64545)](https://joseluisgs.github.io/docs/license/)
 
 ![imagen](https://xef.ai/img/xef-brand.svg)
